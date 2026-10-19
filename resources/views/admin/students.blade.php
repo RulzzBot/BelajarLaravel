@@ -1,67 +1,5 @@
 <x-admin.layout>
     <?php
-        $students = [
-            [
-        "nis" => "123456",
-        "name" => "John Doe",
-        "class" => "10A",
-        "action" => "Aktif"
-        ],
-        [
-            "nis" => "789012",
-            "name" => "Jane Smith",
-            "class" => "11B",
-            "action" => "Aktif"
-        ],
-        [
-            "nis" => "345678",
-            "name" => "Michael Johnson",
-            "class" => "12C",
-            "action" => "Aktif"
-        ],
-        [
-            "nis" => "456789",
-            "name" => "David Wilson",
-            "class" => "10B",
-            "action" => "Aktif"
-        ],
-        [
-            "nis" => "567890",
-            "name" => "Emily Davis",
-            "class" => "11C",
-            "action" => "Aktif"
-        ],
-        [
-            "nis" => "678901",
-            "name" => "Daniel Brown",
-            "class" => "12A",
-            "action" => "Aktif"
-        ],
-        [
-            "nis" => "890123",
-            "name" => "Sarah Miller",
-            "class" => "10C",
-            "action" => "Aktif"
-        ],
-        [
-            "nis" => "901234",
-            "name" => "Robert Taylor",
-            "class" => "11A",
-            "action" => "Inaktif"
-        ],
-        [
-            "nis" => "112233",
-            "name" => "Jessica Anderson",
-            "class" => "12B",
-            "action" => "Aktif"
-        ],
-        [
-            "nis" => "223344",
-            "name" => "William Thomas",
-            "class" => "10A",
-            "action" => "Aktif"
-        ],
-        ]
     ?>
     <div class="mb-6">
         <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Students</h1>
@@ -168,10 +106,10 @@
                             <td class="px-4 py-3"><?= $student['nis'] ?></td>
                             <td class="px-4 py-3"><?= $student['class'] ?></td>
                             <td class="px-4 py-3">
-                                <?php if($student['action'] == 'Aktif'): ?>
-                                    <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900"><?= $student['action'] ?></span>
+                                <?php if($student->action): ?>
+                                    <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">Active</span>
                                 <?php else: ?>
-                                    <span class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-900"><?= $student['action'] ?></span>
+                                    <span class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-900">Inactive</span>
                                 <?php endif; ?>
                             </td>
                         </tr>

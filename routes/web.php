@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\DashboardConroller;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\ClassroomController;
 use Illuminate\Support\Facades\Route;
 
 Route::inertia('/', 'welcome')->name('home');
@@ -27,12 +30,10 @@ Route::get('/admin/dashboard', [DashboardConroller::class, 'index']);
 //     return view('admin.dashboard');
 // })->name('admin.dashboard');
 
-Route::get('/admin/about', function(){
-    return view('admin.about');
-})->name('admin.about');
+Route::get('/admin/about', [AboutController::class, 'index']);
 
-Route::get('/admin/students', function(){
-    return view('admin.students');
-})->name('admin.students');
+Route::get('/admin/students', [StudentController::class, 'index']);
+
+Route::get('/admin/classrooms', [ClassroomController::class, 'index']);
 
 require __DIR__.'/settings.php';
