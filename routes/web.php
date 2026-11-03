@@ -4,6 +4,8 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\DashboardConroller;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ClassroomController;
+use App\Http\Controllers\TeachersController;
+use App\Http\Controllers\SubjectController;
 use Illuminate\Support\Facades\Route;
 
 Route::inertia('/', 'welcome')->name('home');
@@ -35,5 +37,7 @@ Route::get('/admin/about', [AboutController::class, 'index']);
 Route::get('/admin/students', [StudentController::class, 'index']);
 
 Route::get('/admin/classrooms', [ClassroomController::class, 'index']);
+Route::get('/admin/teachers', [TeachersController::class, 'index']);
+Route::get('/admin/subjects', [SubjectController::class, 'index']);
 
 require __DIR__.'/settings.php';

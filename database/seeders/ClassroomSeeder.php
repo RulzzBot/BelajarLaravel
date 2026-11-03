@@ -14,8 +14,6 @@ class ClassroomSeeder extends Seeder
 
 public function run(): void
 {
-    Classroom::query()->delete();
 
-    Classroom::factory()->count(10)->create();
 }
 }
