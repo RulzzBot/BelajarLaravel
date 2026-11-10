@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->bigInteger('niy')->unique();
-            $table->string('subject');
+            // $table->string('subject');
             $table->date('start_date');
             $table->timestamps();
         });

@@ -92,7 +92,8 @@
                             <th scope="col" class="px-4 py-3">No</th>
                             <th scope="col" class="px-4 py-3">Nama</th>
                             <th scope="col" class="px-4 py-3">NIY</th>
-                            <th scope="col" class="px-4 py-3">Subject</th>
+                            <th scope="col" class="px-4 py-3">Subjects</th>
+                            <th scope="col" class="px-4 py-3">Start Date</th>
                             {{-- <th scope="col" class="px-4 py-3">Status</th> --}}
                         </tr>
                     </thead>
@@ -104,7 +105,8 @@
                             <td class="px-4 py-3"><?= $no++ ?></td>
                             <td class="px-4 py-3"><?= $teacher['name'] ?></td>
                             <td class="px-4 py-3"><?= $teacher['niy'] ?></td>
-                            <td class="px-4 py-3"><?= $teacher['subject'] ?></td>
+                            <td class="px-4 py-3">{{ $teacher->subject?->name ?? '-' }}</td>
+                            <td class="px-4 py-3">{{ $teacher->start_date }}</td>
                             {{-- <td class="px-4 py-3">
                                 <?php if($teacher->action): ?>
                                     <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">Active</span>

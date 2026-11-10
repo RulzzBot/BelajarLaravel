@@ -92,6 +92,7 @@
                             <th scope="col" class="px-4 py-3">No</th>
                             <th scope="col" class="px-4 py-3">Nama</th>
                             <th scope="col" class="px-4 py-3">Major</th>
+                            <th scope="col" class="px-4 py-3">Students List</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -103,6 +104,12 @@
                                 <td class="px-4 py-3">{{ $no++ }}</td>
                                 <td class="px-4 py-3">{{ $classroom->name }}</td>
                                 <td class="px-4 py-3">{{ $classroom->major }}</td>
+                                <td class="px-4 py-3">
+                                    <ul>
+                                        @foreach ($classroom->students as $student)
+                                            <li>{{ $student->name }}</li>
+                                        @endforeach
+                                    </ul>
                             </tr>
                     <?php endforeach; ?>
                     </tbody>

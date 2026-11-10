@@ -15,7 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('name', length: 100);
             $table->string('nis', length: 10);
-            $table->string('class', length: 100);
+            // $table->string('class', length: 100);
+            // merelasikan table classroom dengan table students
+            // memnaggilkan id dari table classroom
+            // mengubah column class dari string menjadi foreign key (classroom_id)
+            $table->foreignId('classroom_id')->constrained(
+                table: 'classrooms', indexName: 'classrooms_student_id'
+            );
             $table->boolean('action')->default(true);
             $table->timestamps();
         });

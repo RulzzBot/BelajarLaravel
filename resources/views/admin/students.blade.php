@@ -102,9 +102,9 @@
                             foreach($students as $student): ?>
                         <tr class="border-b dark:border-gray-700">
                             <td class="px-4 py-3"><?= $no++ ?></td>
-                            <td class="px-4 py-3"><?= $student['name'] ?></td>
-                            <td class="px-4 py-3"><?= $student['nis'] ?></td>
-                            <td class="px-4 py-3"><?= $student['class'] ?></td>
+                            <td class="px-4 py-3"><?= $student->name ?></td>
+                            <td class="px-4 py-3"><?= $student->nis ?></td>
+                            <td class="px-4 py-3"><?= $student->classroom->name ?></td>
                             <td class="px-4 py-3">
                                 <?php if($student->action): ?>
                                     <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">Active</span>
