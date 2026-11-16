@@ -22,6 +22,7 @@ return new class extends Migration
             $table->foreignId('classroom_id')->constrained(
                 table: 'classrooms', indexName: 'classrooms_student_id'
             );
+            $table->string('address', length: 200);
             $table->boolean('action')->default(true);
             $table->timestamps();
         });

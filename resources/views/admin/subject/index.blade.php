@@ -2,8 +2,8 @@
     <?php
     ?>
     <div class="mb-6">
-        <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Classrooms</h1>
-        <p class="text-gray-900 dark:text-gray-400">Welcome to your classrooms page!</p>
+        <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Subjects</h1>
+        <p class="text-gray-900 dark:text-gray-400">Welcome to your subjects page!</p>
     </div>
     {{-- Table --}}
     <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 w-full">
@@ -25,11 +25,14 @@
                     </form>
                 </div>
                 <div class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 shrink-0">
-                    <button type="button" class="flex items-center justify-center text-white bg-sky-500 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
+                    <button
+                        data-modal-target='addSubjectModal'
+                        data-modal-toggle='addSubjectModal'
+                        type="button" class="flex items-center justify-center text-white bg-sky-500 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
                         <svg class="h-3.5 w-3.5 mr-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path clip-rule="evenodd" fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
                         </svg>
-                        Add Classroom
+                        Add Subject
                     </button>
                     <div class="flex items-center space-x-3 w-full md:w-auto">
                         <button id="actionsDropdownButton" data-dropdown-toggle="actionsDropdown" class="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" type="button">
@@ -91,27 +94,29 @@
                         <tr>
                             <th scope="col" class="px-4 py-3">No</th>
                             <th scope="col" class="px-4 py-3">Nama</th>
-                            <th scope="col" class="px-4 py-3">Major</th>
-                            <th scope="col" class="px-4 py-3">Students List</th>
+                            {{-- <th scope="col" class="px-4 py-3">NIY</th>
+                            <th scope="col" class="px-4 py-3">Subject</th> --}}
+                            {{-- <th scope="col" class="px-4 py-3">Status</th> --}}
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                             $no = 1;
-                            foreach ($classrooms as $classroom):
-                        ?>
-                            <tr class="border-b dark:border-gray-700">
-                                <td class="px-4 py-3">{{ $no++ }}</td>
-                                <td class="px-4 py-3">{{ $classroom->name }}</td>
-                                <td class="px-4 py-3">{{ $classroom->major }}</td>
-                                <td class="px-4 py-3">
-                                    <ul>
-                                        @foreach ($classroom->students as $student)
-                                            <li>{{ $student->name }}</li>
-                                        @endforeach
-                                    </ul>
-                            </tr>
-                    <?php endforeach; ?>
+                            foreach($subjects as $subject): ?>
+                        <tr class="border-b dark:border-gray-700">
+                            <td class="px-4 py-3"><?= $no++ ?></td>
+                            <td class="px-4 py-3"><?= $subject['name'] ?></td>
+                            {{-- <td class="px-4 py-3"><?= $subject['code'] ?></td>
+                            <td class="px-4 py-3"><?= $subject['description'] ?></td> --}}
+                            {{-- <td class="px-4 py-3">
+                                <?php if($teacher->action): ?>
+                                    <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">Active</span>
+                                <?php else: ?>
+                                    <span class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-900">Inactive</span>
+                                <?php endif; ?>
+                            </td> --}}
+                        </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
@@ -158,5 +163,6 @@
             </nav>
         </div>
     </div>
+    @include('admin.subject.create');
     </section>
 </x-admin.layout>

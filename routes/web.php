@@ -39,5 +39,21 @@ Route::get('/admin/students', [StudentController::class, 'index']);
 Route::get('/admin/classrooms', [ClassroomController::class, 'index']);
 Route::get('/admin/teachers', [TeachersController::class, 'index']);
 Route::get('/admin/subjects', [SubjectController::class, 'index']);
+// student routes
+Route::get('/admin/students/index', [StudentController::class, 'index'])->name('students.index');
+Route::get('/admin/students/create', [StudentController::class, 'create'])->name('students.create');
+Route::post('/admin/students', [StudentController::class, 'store'])->name('students.store');
+// classroom routes
+Route::get('/admin/classrooms/index', [ClassroomController::class, 'index'])->name('classrooms.index');
+Route::get('/admin/classrooms/create', [ClassroomController::class, 'create'])->name('classrooms.create');
+Route::post('/admin/classrooms', [ClassroomController::class, 'store'])->name('classrooms.store');
+// teacher routes
+Route::get('/admin/teachers/index', [TeachersController::class, 'index'])->name('teachers.index');
+Route::get('/admin/teachers/create', [TeachersController::class, 'create'])->name('teachers.create');
+Route::post('/admin/teachers', [TeachersController::class, 'store'])->name('teachers.store');
+// subject routes
+Route::get('/admin/subjects/index', [SubjectController::class, 'index'])->name('subjects.index');
+Route::get('/admin/subjects/create', [SubjectController::class, 'create'])->name('subjects.create');
+Route::post('/admin/subjects', [SubjectController::class, 'store'])->name('subjects.store');
 
 require __DIR__.'/settings.php';
